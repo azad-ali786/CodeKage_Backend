@@ -1,9 +1,9 @@
 import express from "express";
-import { createTerminal } from "../controllers/terminalController";
+import { runCode } from "../controllers/codeRunnerController";
 
 const router = express.Router();
 
 // Create a new terminal process
-router.post("/", createTerminal);
+router.post("/", runCode);
 
 export default router;

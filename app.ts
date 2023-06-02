@@ -1,7 +1,8 @@
 import express, { Application } from "express";
+const cors = require("cors");
 import mongoose, { ConnectOptions } from "mongoose";
 import codeRoutes from "./routes/codeRoutes";
-import terminalRoutes from "./routes/terminalRoutes";
+import codeRunnerRoutes from "./routes/codeRunnerRoutes";
 
 require("dotenv").config();
 
@@ -25,13 +26,14 @@ mongoose
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.get("/", function requestHandler(req, res) {
   res.send("Pingggg");
 });
 app.use("/code", codeRoutes);
-app.use("/terminal", terminalRoutes);
+app.use("/runCode", codeRunnerRoutes);
 
 // Start the server
 app.listen(PORT, () => {

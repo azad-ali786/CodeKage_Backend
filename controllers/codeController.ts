@@ -18,12 +18,12 @@ export const saveCode = async (req: Request, res: Response): Promise<void> => {
 // Retrieve code from the database
 export const getCode = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { fileName, userId } = req.params;
-    const code: ICode | null = await Code.findOne({ fileName, userId });
+    const { userId } = req.params;
+    const code: ICode | null = await Code.findOne({ userId });
     if (!code) {
       res.status(404).json({ message: "Code not found" });
     } else {
-      res.status(200).json({ code: code.code });
+      res.status(200).json({ fileName: code.fileName,code: code.code });
     }
   } catch (error) {
     console.error(error);
