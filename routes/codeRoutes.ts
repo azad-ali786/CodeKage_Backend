@@ -8,6 +8,6 @@ const router: Router = express.Router();
 router.post("/", saveCode);
 
 // Retrieve code from the database
-router.get("/:fileName", getCode);
+router.get("/:fileName/:userId", getCode);
 
 export default router;
