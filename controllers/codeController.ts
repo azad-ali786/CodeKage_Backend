@@ -5,14 +5,26 @@ import Code, { ICode } from "../models/codeModel";
 export const saveCode = async (req: Request, res: Response): Promise<void> => {
   try {
     const { fileName, code, userId } = req.body;
-    const newCode: ICode = new Code({ fileName, code, userId });
-    await newCode.save();
-    res.status(200).json({ message: "Code saved successfully" });
+    
+    const existingCode = await Code.findOneAndUpdate(
+      { fileName, userId },
+      { code },
+      { new: true }
+    );
+
+    if (existingCode) {
+      res.status(200).json({ message: "Code updated successfully" });
+    } else {
+      const newCode: ICode = new Code({ fileName, code, userId });
+      await newCode.save();
+      res.status(200).json({ message: "Code saved successfully" });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 // Retrieve code from the database
 // Retrieve code from the database
