@@ -12,31 +12,6 @@ The backend code is organized into the following directories:
 - `services`: Contains additional services or utilities used by the API.
 - `app.ts`: The entry point of the application.
 
-📁 CodeKage Backend
-  |
-  ├── 📁 src
-  |   |
-  |   ├── 📁 controllers
-  |   |   ├── codeController.ts
-  |   |   ├── userController.ts
-  |   |
-  |   ├── 📁 models
-  |   |   ├── codeModel.ts
-  |   |   ├── userModel.ts
-  |   |
-  |   ├── 📁 routes
-  |   |   ├── codeRoutes.ts
-  |   |   ├── userRoutes.ts
-  |   |
-  |   |
-  |   ├── app.ts
-  |
-  ├── .env.example
-  ├── .gitignore
-  ├── package.json
-  ├── README.md
-  ├── tsconfig.json
-
 ## Installation
 
 1. Clone the repository:
