@@ -10,13 +10,10 @@ const app: Application = express();
 const PORT = process.env.PORT || 8000; // Set your desired port number
 
 mongoose
-  .connect(
-    "mongodb+srv://azad:uWJzbWCVcFbFTchE@codekage.4olzqk7.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as ConnectOptions
-  )
+  .connect(process.env.MONGODB_URI!, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  } as ConnectOptions)
   .then((res) => {
     console.log("Connected to API Database - Initial Connection");
   })
