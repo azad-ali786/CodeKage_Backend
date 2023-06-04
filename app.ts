@@ -32,9 +32,4 @@ app.get("/", function requestHandler(req, res) {
 app.use("/code", codeRoutes);
 app.use("/runCode", codeRunnerRoutes);
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-module.exports = app;
+export default app;
