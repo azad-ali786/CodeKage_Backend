@@ -34,16 +34,16 @@ The backend code is organized into the following directories:
 
 To start the TypeScript backend API, follow these steps:
 
-1. Compile the TypeScript code to JavaScript:
+1. Build the project:
 
 ```shell
-         tsc
+        npm run build
 ```
 
 2.Start the API:
 
 ```shell
-         node dist/app.js
+        npm run start
 ```
 
 The API will start running on the configured port, and you should see a message in the console indicating that the server is running.
